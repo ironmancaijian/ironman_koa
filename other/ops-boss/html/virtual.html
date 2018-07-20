@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boss管理平台</title>
+    <link rel="stylesheet" href="../boss_assets/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../boss_assets/node_modules/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../boss_assets/node_modules/nprogress/nprogress.css">
+    <link rel="stylesheet" href="../boss_assets/css/IMGUP.css">
+    <link rel="stylesheet" href="../boss_assets/css/index.css">
+    <link rel="shortcut icon" href="../boss_assets/img/AppIcon20@2x.png">
+    <style>
+        .beatyInfo>ul>Li{
+            width: 150px;
+        }
+        .beatyInfo>ul>Li>span{
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="./index.html">
+                        <img src="../boss_assets/img/home.png"> 统计数据
+                    </a>
+                </li>
+                <li>
+                    <a href="./ticketManage.html">
+                        <img src="../boss_assets/img/ticket.png"> 门票管理
+                    </a>
+                </li>
+                <li>
+                    <a href="./orderManage.html">
+                        <img src="../boss_assets/img/order.png"> 订单管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/me.png">
+                        用户管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="./users.html">
+                                用户管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./boss.html">
+                                 BOSS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./girls.html">
+                                佳人
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./agency.html">
+                                中介
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./virtual.html" class="active">
+                                虚拟用户
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./homeManage.html">
+                        <img src="../boss_assets/img/indexManage.png"> 置顶MM
+                    </a>
+                </li>
+                <li>
+                    <a href="./reviewManage.html">
+                        <img src="../boss_assets/img/review.png"> 审核管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/msg.png">
+                        推送管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./msgManage.html">
+                                短信管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./pushManage.html">
+                                push管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/version.png"> 版本更新
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./AndroidVersionUpdate.html">
+                                安卓更新
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./AppleVersionUpdate.html">
+                                苹果更新
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 主体 -->
+    <div class="main">
+
+        <div class="container-fluid">
+            <div class="head">
+                <div class="top">
+                    <span class="title">虚拟用户</span>
+                </div>
+            </div>
+            <div class="body">
+                <div class="formData registerUserOverview">
+                    <div class="b-Top">
+                        <span class="formView">当日关键指标</span>
+                    </div>
+                    <!-- 表格模板 -->
+
+                    <div class="b-Main">
+                        <div class="b-cell">
+                            <span class="b-title">累计虚拟用户</span>
+                            <span class="b-init data"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formData relative">
+                    <div class="b-Top">
+                        <span class="formView">
+                            
+                        </span>
+                        <button class="pro-export" data-toggle="modal" data-target="#addNew">+新建虚拟用户</button>
+                    </div>
+                    <div class="b-Table">
+                        <!-- <table class="userInfo" border="1">
+                            <tr>
+                                <th>用户ID</th>
+                                <th>艺名</th>
+                                <th>照片</th>
+                                <th>订单(次)</th>
+                                <th>总收益(元)</th>
+                                <th>评分</th>
+                                <th>聊天</th>
+                                <th>状态</th>
+                            </tr>
+                            <tr>
+                                <td>1285734212</td>
+                                <td class="check" data-toggle="modal" data-target="#noagreeModal">小鸡炖蘑菇</td>
+                                <td class="check" data-toggle="modal" data-target="#myModal">5</td>
+                                <td class="check" data-toggle="modal" data-target="#order">15</td>
+                                <td>5000</td>
+                                <td>9.8</td>
+                                <td class="check">消息(3)</td>
+                                <td>
+                                    <button class="btn btn-primary cancleBtn" userId={{list[i].id}}>编辑</button>
+                                    <button class="btn btn-success cancleBtn" userId={{list[i].id}}>下架</button>
+                                    <button class="btn btn-danger cancleBtn" userId={{list[i].id}}>上架</button>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="pages">
+                            <a href="javascript:;" class="previous">
+                                <img src="../boss_assets/img/previous.png" alt="">
+                            </a>
+                            <span class="currentPage currPn">1</span>
+                            <span>/</span>
+                            <span class="currentPage totalPn">12</span>
+                            <a href="javascript:;" class="next">
+                                <img src="../boss_assets/img/next.png" alt="">
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 订单 Modal -->
+    <div class="modal fade" id="order" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="myModalLabel">订单记录</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="orderList">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 个人信息 Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="myModalLabel">佳人信息</h3>
+                </div>
+                <div class="modal-body modal-content">
+                    <form>
+                        <div class="form-group beatyInfo">
+                            <ul>
+                                <li><span>艺名:</span>
+                                    <strong class="name"></strong>
+                                </li>
+                                <li><span>城市:</span>
+                                    <strong class="cityId"></strong>
+                                </li>
+                                <li><span>价格:</span>
+                                    <strong class="price"></strong>
+                                </li>
+                                <li><span>气质:</span>
+                                    <strong class="temperament"></strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                    <!-- 轮播图 -->
+                    <div id="myCarousel" class="carousel slide">
+                        <!-- 轮播（Carousel）指标 -->
+                        <ol class="carousel-indicators">
+                        </ol>
+                        <!-- 轮播（Carousel）项目 -->
+                        <div class="carousel-inner">
+                        </div>
+                        <!-- 轮播（Carousel）导航 -->
+                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;
+                        </a>
+                        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 创建虚拟用户 Modal -->
+    <div class="mark">
+        <div class="markinner">
+            <!-- <input type="hidden" value="" class="hidden_input"> -->
+            <span class="modal_top">创建虚拟用户</span>
+            <span class="close glyphicon glyphicon-remove"></span>
+            <div class="form-group girlName">
+                <label for="">艺名</label>
+                <input type="text" class="all_input" id="girl_name" placeholder="起一个响亮又文雅的艺名吧">
+            </div>
+            
+            <div class="form-group">
+                <label for="">城市</label>
+                <select name="girls_height" id="girl_city" class="all_input">
+                    <option value="北京" cityid=1>北京</option>
+                    <option value="上海" cityid=3>上海</option>
+                    <option value="广州" cityid=190>广州</option>
+                    <option value="深圳" cityid=200>深圳</option>
+                    <option value="天津" cityid=2>天津</option>
+                    <option value="石家庄" cityid=6>石家庄</option>
+                    <option value="武汉" cityid=159>武汉</option>
+                    <option value="杭州" cityid=78>杭州</option>
+                    <option value="南京" cityid=63>南京</option>
+                    <option value="西安" cityid=297>西安</option>
+                    <option value="长沙" cityid=177>长沙</option>
+                    <option value="青岛" cityid=126>青岛</option>
+                    <option value="沈阳" cityid=27>沈阳</option>
+                    <option value="大连" cityid=29>大连</option>
+                    <option value="厦门" cityid=105>厦门</option>
+                    <option value="苏州" cityid=66>苏州</option>
+                    <option value="宁波" cityid=81>宁波</option>
+                    <option value="无锡" cityid=64>无锡</option>
+                    
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label for="apkName">照片</label>
+                <button id="div_imgfile">选择图片</button>
+                <input type="button" value="确定上传" id="btn_ImgUpStart" />
+
+                <div id="div_imglook">
+                    <div style="clear: both;"></div>
+                </div>
+                <button type="button" class="btn btn-primary btn-lg" id="upload" data-loading-text="<i class='fa fa-spinner fa-spin '></i> 上传中......">确定</button>
+                <button type="button" class="btn btn-primary btn-lg" id="editor_upload" userid="" uid="" uType="" data-loading-text="<i class='fa fa-spinner fa-spin '></i> 上传中......">修改</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="../boss_assets/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../boss_assets/node_modules/jquery.cookie/jquery.cookie.js"></script>
+<script src="../boss_assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../boss_assets/node_modules/art-template/lib/template-web.js"></script>
+<script src="../boss_assets/node_modules/nprogress/nprogress.js"></script>
+<script src="../boss_assets/node_modules/jquery/exif.js"></script>
+<script src="../boss_assets/node_modules/jquery/IMGUP.js"></script>
+<script src="../boss_assets/node_modules/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script src="../boss_assets/js/common.js"></script>
+<script src="../boss_assets/js/virtual.js"></script>
+
+<script type="text/template" id="virtualTemp">
+    <table class="userInfo" border="1">
+        <tr>
+            <th>用户ID</th>
+            <th>艺名</th>
+            <th id="sort" mySort="order_num" desc="order_num desc" type="1" class="as pointer">订单(次) &nbsp;<i class="fa fa-sort" aria-hidden="true"></i></th>
+            <th id="sort" mySort="amount" desc="amount desc" class="as pointer">总收益(元) &nbsp;<i class="fa fa-sort" aria-hidden="true"></i></th>
+            <th id="sort" mySort="score" desc="score desc" class="as pointer">评分 &nbsp;<i class="fa fa-sort" aria-hidden="true"></i></th>
+            <th>状态</th>
+        </tr>
+        {{each list v i}}
+        <tr>
+            <td>{{v.id}}</td>
+            <td class="check name_evaluate" uid="{{v.id}}" data-toggle="modal" data-target="#myModal">{{v.name}}</td>
+            {{if v.orderNum != 0}}
+            <td class="check order_evaluate" uid="{{v.id}}" ordertype="1" data-toggle="modal" data-target="#order">{{v.orderNum}}</td>
+            {{else}}
+            <td>--</td>
+            {{/if}} {{if v.amount != 0}}
+            <td>{{v.amount}}</td>
+            {{else}}
+            <td>--</td>
+            {{/if}}
+            <td>{{v.score}}</td>
+            <td>
+                <button class="btn btn-primary editor" userId={{list[i].id}}>编辑</button> {{if v.salesStatus == 0}}
+                <button class="btn btn-danger cancleBtn" salesStatus="1" userId={{v.id}}>上架</button> {{else}}
+                <button class="btn btn-success cancleBtn" salesStatus="0" userId={{v.id}}>下架</button> {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    <div class="pages">
+        <a href="javascript:;" class="previous">
+                <img src="../boss_assets/img/previous.png" alt="">
+            </a>
+        <span class="currentPage currPn">{{pn}}</span>
+        <span>/</span>
+        <span class="currentPage totalPn">{{pageCount}}</span>
+        <a href="javascript:;" class="next">
+            <img src="../boss_assets/img/next.png" alt="">
+        </a>
+    </div>
+</script>
+
+<script type="text/template" id="optionsTemp">
+    {{each list v i}}
+    {{if i == "property"}}
+    <div></div>
+    {{else if i == "特长（多选）"}}
+    <div class="form-group">
+        <label for="">{{i}}</label>
+        <div>
+            {{each v k j}}
+            <input type="checkbox" class="specialty" optId={{k.id}} name="speciality">{{k.name}}
+            {{/each}} 
+        </div>
+    </div>
+    {{else}}
+    <div class="form-group">
+        <label for="">{{i}}</label>
+        <select name="" id='opt_{{i}}' class="all_input">
+            {{each v k j}}
+            <option value={{k.name}} optId={{k.id}}>{{k.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    {{/if}} {{/each}}
+</script>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boss管理平台</title>
+    <link rel="stylesheet" href="../boss_assets/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../boss_assets/node_modules/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../boss_assets/node_modules/nprogress/nprogress.css">
+    <link rel="stylesheet" href="../boss_assets/css/index.css">
+    <link rel="shortcut icon" href="../boss_assets/img/AppIcon20@2x.png">
+
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <div class="navs">
+            <ul class="list-unstyled">
+                <!-- <li>
+                    <a href="javascript:;" class="active">
+                        <img src="../boss_assets/img/home.png"> 统计数据
+                    </a>
+                </li>
+                <li>
+                    <a href="./ticketManage.html">
+                        <img src="../boss_assets/img/ticket.png"> 门票管理
+                    </a>
+                </li>
+                <li>
+                    <a href="./orderManage.html">
+                        <img src="../boss_assets/img/order.png"> 订单管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/me.png">
+                        用户管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./users.html">
+                                用户管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./boss.html">
+                                 BOSS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./girls.html">
+                                佳人
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./agency.html">
+                                中介
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./virtual.html">
+                                虚拟用户
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./homeManage.html">
+                        <img src="../boss_assets/img/indexManage.png"> 置顶MM
+                    </a>
+                </li>
+                <li>
+                    <a href="./reviewManage.html">
+                        <img src="../boss_assets/img/review.png"> 审核管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/msg.png">
+                        推送管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./msgManage.html">
+                                短信管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./pushManage.html">
+                                push管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/version.png"> 版本更新
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./AndroidVersionUpdate.html">
+                                安卓更新
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./AppleVersionUpdate.html">
+                                苹果更新
+                            </a>
+                        </li>
+                    </ul>
+                </li> -->
+                <li class="listLi">
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/report.png">
+                            举报
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled ">
+                        <li>
+                            <a href="./report.html" class="active">
+                                内容举报
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <div class="head">
+                <div class="top">
+                    <span class="title">内容举报</span>
+                </div>
+            </div>
+            <div class="body">
+                <div class="formData relative">
+                    <div class="b-Table">
+                        <!-- 模板 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 遮罩层 -->
+    <!-- <div class="reportMark">
+        <div class="viewPic">
+            <i class="fa fa-times" aria-hidden="true"></i>
+            <img src="" class="bigPic">
+        </div>
+    </div>reportMark -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header big-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body modal-content">
+                    <div id="myCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+                            <img src="" class="bigPic">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="../boss_assets/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../boss_assets/node_modules/jquery.cookie/jquery.cookie.js"></script>
+<script src="../boss_assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../boss_assets/node_modules/art-template/lib/template-web.js"></script>
+<script src="../boss_assets/node_modules/nprogress/nprogress.js"></script>
+<script src="../boss_assets/js/common.js"></script>
+<script src="../boss_assets/js/report.js"></script>
+
+<script type="text/html" id="reportTemp">
+    <table class="userInfo" border="1">
+        <tr>
+            <th>时间</th>
+            <th>举报人</th>
+            <th>被举报人</th>
+            <th>原因</th>
+            <th>截图</th>
+            <th>备注</th>
+        </tr>
+        {{each data value i}}
+        <tr>
+            <td>{{value.createTime}}</td>
+            <td>{{value.userName}}</td>
+            <td>{{value.suspectName}}</td>
+            <td>{{value.reason}}</td>
+            <td>
+                {{each value.imageArray img j}}
+                <img src="{{img}}" class="reportImg" data-toggle="modal" data-target="#myModal"> {{/each}}
+            </td>
+            {{if value.isOperation == 0}}
+            <td>
+                <button class="btn btn-danger handle" isOperation="{{value.isOperation}}" reportid="{{value.id}}" uid="{{value.suspectId}}" type="1">封号</button>
+                <button class="btn btn-success handle" isOperation="{{value.isOperation}}" reportid="{{value.id}}" uid="{{value.suspectId}}" type="0">忽略</button>
+            </td>
+            {{else}}
+            <td>
+                <button class="btn btn-primary" disabled>已处理</button>
+            </td>
+            {{/if}}
+        </tr>
+        {{/each}}
+    </table>
+    <div class="pages">
+        <a href="javascript:;" class="previous">
+            <img src="../boss_assets/img/previous.png" alt="">
+        </a>
+        <a href="javascript:;" class="next">
+            <img src="../boss_assets/img/next.png" alt="">
+        </a>
+    </div>
+</script>

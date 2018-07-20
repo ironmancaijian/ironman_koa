@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boss管理平台</title>
+    <link rel="stylesheet" href="../boss_assets/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../boss_assets/node_modules/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../boss_assets/node_modules/nprogress/nprogress.css">
+    <link rel="stylesheet" href="../boss_assets/node_modules/startEnd-date/plugin/layui-v1.0.7/css/layui.css">
+    <link rel="stylesheet" href="../boss_assets/node_modules/startEnd-date/css/date.css">
+    <link rel="stylesheet" href="../boss_assets/css/index.css">
+    <link rel="shortcut icon" href="../boss_assets/img/AppIcon20@2x.png">
+
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="./index.html">
+                        <img src="../boss_assets/img/home.png"> 统计数据
+                    </a>
+                </li>
+                <li>
+                    <a href="./ticketManage.html">
+                        <img src="../boss_assets/img/ticket.png"> 门票管理
+                    </a>
+                </li>
+                <li>
+                    <a href="./orderManage.html" class="active">
+                        <img src="../boss_assets/img/order.png"> 订单管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/me.png">
+                        用户管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./users.html">
+                                用户管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./boss.html">
+                                 BOSS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./girls.html">
+                                佳人
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./agency.html">
+                                中介
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./virtual.html">
+                                虚拟用户
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./homeManage.html">
+                        <img src="../boss_assets/img/indexManage.png"> 置顶MM
+                    </a>
+                </li>
+                <li>
+                    <a href="./reviewManage.html">
+                        <img src="../boss_assets/img/review.png"> 审核管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/msg.png">
+                        推送管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./msgManage.html">
+                                短信管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./pushManage.html">
+                                push管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/version.png"> 版本更新
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./AndroidVersionUpdate.html">
+                                安卓更新
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./AppleVersionUpdate.html">
+                                苹果更新
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 主体 -->
+    <div class="main">
+
+        <div class="container-fluid">
+            <div class="head">
+                <div class="top">
+                    <span class="title">订单管理</span>
+                </div>
+            </div>
+            <div class="body">
+                <div class="formData registerUserOverview">
+                    <div class="b-Top">
+                        <span class="formView">当日关键指标</span>
+                    </div>
+                    <!-- 表格模板 -->
+
+                    <div class="b-Main">
+                        <div class="b-cell">
+                            <span class="b-title">当日订单数</span>
+                            <span class="b-init orderNow"></span>
+                        </div>
+                        <div class="b-cell">
+                            <span class="b-title">当日订单流水(元)</span>
+                            <span class="b-init orderPriceNow"></span>
+                        </div>
+                        <div class="b-cell">
+                            <span class="b-title">累计订单数</span>
+                            <span class="b-init orderCount"></span>
+                        </div>
+                        <div class="b-cell">
+                            <span class="b-title">累计订单流水(元)</span>
+                            <span class="b-init orderPriceCount"></span>
+                        </div>
+                    </div>
+                    <div class="b-Main">
+                        <div class="b-cell">
+                            <span class="b-title">累计退单数</span>
+                            <span class="b-init singularCount"></span>
+                        </div>
+                        <div class="b-cell">
+                            <span class="b-title">累计留存(元)</span>
+                            <span class="b-init retained"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 按钮组 -->
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default">订单个数</button>
+                    <button type="button" class="btn btn-default">订金流水</button>
+                    <button type="button" class="btn btn-default">订金分布</button>
+                    <button type="button" class="btn btn-default">城市分布</button>
+                </div>
+                <div>
+                    <div class="formData tab_cell">
+                        <div class="b-Top">
+                            <!-- <span class="f_right">门票小计(个):</span> -->
+                            <div class="dropdown formView">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="true">
+                                  最近7天
+                                  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="javascript:;" onclick="getTicketQuantity(date._7daysago, date._1dayago);">最近7天</a></li>
+                                    <li><a href="javascript:;" onclick="getTicketQuantity(date._15daysago, date._1dayago)">最近15天</a></li>
+                                    <li><a href="javascript:;" onclick="getTicketQuantity(date._30daysago, date._1dayago);">最近30天</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div id="mychart" style="width: 1418px;height:600px;"></div>
+                    </div>
+                    <div class="formData tab_cell">
+                        <div class="b-Top">
+                            <div class="dropdown formView">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="true">
+                                  最近7天
+                                  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="javascript:;" onclick="getMoneyData(date._7daysago, date._1dayago);">最近7天</a></li>
+                                    <li><a href="javascript:;" onclick="getMoneyData(date._15daysago, date._1dayago)">最近15天</a></li>
+                                    <li><a href="javascript:;" onclick="getMoneyData(date._30daysago, date._1dayago);">最近30天</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="mychart2" style="width: 1418px;height:600px;"></div>
+                    </div>
+                    <div class="formData tab_cell">
+                        <div id="mychart3" style="width: 1418px;height:600px;"></div>
+                    </div>
+                    <div class="formData tab_cell">
+                        <div id="mychart4" style="width: 1418px;height:600px;"></div>
+                    </div>
+                </div>
+                <div class="formData relative">
+                    <div class="b-Top">
+                        <span class="formView">
+                            <form class="layui-form" action="" id="form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">起止日期</label>
+                                        <div class="layui-input-inline ui-time">
+                                            <input type="text" id="dp11" class="layui-input ui-time-text" value="" placeholder="1970-01-01~2117-10-16" kssj="2017-09-09" jssj="2018-09-09" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </span>
+                        <button class="btn btn-success query_table">确定</button>
+                        <button class="pro-export">下载表格</button>
+                    </div>
+                    <div class="b-Table">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 订单关系 Modal -->
+    <div class="modal fade" id="order" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="myModalLabel">订单关系</h3>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        角色:&nbsp;<span class="role1">BOSS</span> ID:&nbsp; <span class="userid1"></span> 手机号:&nbsp;
+                        <span
+                            class="mobile1"></span>
+                    </div>
+                    <div>
+                        角色:&nbsp;<span class="role2"></span>&nbsp;&nbsp; ID:&nbsp; <span class="userid2"></span> 手机号:&nbsp;
+                        <span class="mobile2"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 评价 Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="myModalLabel">评价</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="evaluate"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- boss不同意退款 Modal -->
+    <div class="modal fade" id="mynaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="myModalLabel">不同意原因</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="evaluate"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 不同意退款 Modal -->
+    <div class="modal fade" id="noagreeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="myModalLabel">不同意原因</h3>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" id="versionIntro" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="upload_noagree" orderId="" payStatus="-3">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="../boss_assets/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../boss_assets/node_modules/jquery.cookie/jquery.cookie.js"></script>
+<script src="../boss_assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../boss_assets/node_modules/art-template/lib/template-web.js"></script>
+<script src="../boss_assets/node_modules/nprogress/nprogress.js"></script>
+<script src="../boss_assets/node_modules/echarts/dist/echarts.min.js"></script>
+<script src="../boss_assets/node_modules/startEnd-date/plugin/layui-v1.0.7/layui.js"></script>
+<script src="../boss_assets/node_modules/startEnd-date/js/jQuery.dateLay.js"></script>
+<script src="../boss_assets/node_modules/startEnd-date/main.js"></script>
+<script src="../boss_assets/js/common.js"></script>
+<script src="../boss_assets/js/orderManage.js"></script>
+
+<script type="text/javascript">
+    layui.use(['laydate', 'dateLay'], function () {
+        var layer = layui.layer, laydate = layui.laydate;
+        var obj = {
+            init: function () {
+                this.dp11 = $('#dp11');
+                this.initEvent();
+            },
+            initEvent: function () {
+                this.dp11.dateLay();
+            }
+        }
+        obj.init();
+    });
+</script>
+
+<script type="text/template" id="orderModal">
+    <table class="userInfo" border="1">
+        <tr>
+            <th>订单编号</th>
+            <th>时间</th>
+            <th>用户ID</th>
+            <th>订金</th>
+            <th>城市</th>
+            <th>BOSS评价</th>
+            <th>释放</th>
+            <th>BOSS取消订单</th>
+            <th>退款</th>
+        </tr>
+        {{each list v i}}
+        <tr>
+            <td class="check order_num" orderId={{v.orderId}} data-toggle="modal" data-target="#order">{{v.orderNumber}}</td>
+            <td>{{v.time}}</td>
+            <td>{{v.userId}}</td>
+            <td>{{v.amount/100}}</td>
+            <td>{{v.cityName}}</td>
+            {{if v.isEvaluate == "是"}}
+            <td class="check boss_evaluate" userId="{{v.userId}}" Evaluate="{{v.Evaluate}}" data-toggle="modal" data-target="#myModal">是</td>
+            {{else}}
+            <td>--</td>
+            {{/if}} {{if v.PayStatus == 3}}
+            <td><button class="btn btn-success agreeBtn" orderId={{v.orderId}} payStatus="2">同意</button></td>
+            {{else}}
+            <td>--</td>
+            {{/if}} {{if v.PayStatus == -1}}
+            <td class="check boss_evaluate"  Evaluate="{{v.CancelOrderReason}}" data-toggle="modal" data-target="#mynaModal">是</td>
+            {{else}}
+            <td>--</td>
+            {{/if}} {{if v.PayStatus == -1}}
+            <td>
+                <button class="btn btn-success cancleBtn" orderId={{v.orderId}} payStatus="-2">同意</button>
+                <button class="btn btn-danger not_agree" orderId={{v.orderId}} payStatus="-3" data-toggle="modal" data-target="#noagreeModal">不同意</button>
+            </td>
+            {{else if v.PayStatus == -2}}
+            <td>
+                <button class="btn btn-failed">同意</button>
+            </td>
+            {{else if v.PayStatus == -3}}
+            <td>
+                <button class="btn btn-failed">不同意</button>
+            </td>
+            {{else}}
+            <td>--</td>
+            {{/if}}
+        </tr>
+        {{/each}}
+    </table>
+    <div class="pages">
+        <a href="javascript:;" class="previous">
+            <img src="../boss_assets/img/previous.png" alt="">
+        </a>
+        <span class="currentPage currPn">{{pn}}</span>
+        <span>/</span>
+        <span class="currentPage totalPn">{{pageCount}}</span>
+        <a href="javascript:;" class="next">
+            <img src="../boss_assets/img/next.png" alt="">
+        </a>
+    </div>
+</script>

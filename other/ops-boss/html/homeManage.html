@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boss管理平台</title>
+    <link rel="stylesheet" href="../boss_assets/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../boss_assets/node_modules/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../boss_assets/node_modules/nprogress/nprogress.css">
+    <link rel="stylesheet" href="../boss_assets/css/IMGUP.css">
+    <link rel="stylesheet" href="../boss_assets/css/index.css">
+    <link rel="shortcut icon" href="../boss_assets/img/AppIcon20@2x.png">
+
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="./index.html">
+                        <img src="../boss_assets/img/home.png"> 统计数据
+                    </a>
+                </li>
+                <li>
+                    <a href="./ticketManage.html">
+                        <img src="../boss_assets/img/ticket.png"> 门票管理
+                    </a>
+                </li>
+                <li>
+                    <a href="./orderManage.html">
+                        <img src="../boss_assets/img/order.png"> 订单管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/me.png"> 
+                            用户管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./users.html">
+                                用户管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./boss.html">
+                                BOSS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./girls.html">
+                                佳人
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./agency.html">
+                                中介
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./virtual.html">
+                                虚拟用户
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./homeManage.html" class="active">
+                        <img src="../boss_assets/img/indexManage.png"> 置顶MM
+                    </a>
+                </li>
+                <li>
+                    <a href="./reviewManage.html">
+                        <img src="../boss_assets/img/review.png"> 审核管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/msg.png"> 推送管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./msgManage.html">
+                                短信管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./pushManage.html">
+                                push管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/version.png"> 版本更新
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./AndroidVersionUpdate.html">
+                                安卓更新
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./AppleVersionUpdate.html">
+                                苹果更新
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 主体 -->
+    <div class="main">
+
+        <div class="container-fluid">
+            <div class="head">
+                <div class="top">
+                    <span class="title">首页管理</span>
+                </div>
+            </div>
+            <div class="body">
+
+                <div class="formData relative">
+                    <div class="b-Top">
+                        <span class="formView">
+
+                        </span>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#addNew">+新增</button>
+                    </div>
+                    <div class="b-Table">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增 Modal -->
+    <div class="modal fade" id="addNew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title" id="myModalLabel">搜索佳人</h3>
+                </div>
+                <div class="modal-body modal-content group">
+                    <input type="text" class="form-control idNum" placeholder="请输入要查询的用户ID">
+                    <input type="text" class="form-control sortNum" placeholder="请输入要排序的序号">
+                    <button class="btn btn-primary search" type="button">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 佳人信息 Modal -->
+    <div class="modal fade" id="noagreeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body modal-content">
+                    <form>
+                        <div class="form-group" style="display:flex;justify-content:space-around">
+                            <ul>
+                                <li>
+                                    <span>艺名:</span>
+                                    <strong class="name"></strong>
+                                </li>
+                                <li>
+                                    <span>城市:</span>
+                                    <strong class="cityId"></strong>
+                                </li>
+                                <li>
+                                    <span>价格:</span>
+                                    <strong class="price"></strong>
+                                </li>
+                                <li>
+                                    <span>气质:</span>
+                                    <strong class="temperament"></strong>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li><span>年龄:</span>
+                                    <strong class="age"></strong>
+                                </li>
+                                <li><span>身高:</span>
+                                    <strong class="high"></strong>
+                                </li>
+                                <li><span>上围:</span>
+                                    <strong class="wai"></strong>
+                                </li>
+                                <li><span>形象:</span>
+                                    <strong class="image"></strong>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li><span>特长:</span>
+                                    <strong class="specialty"></strong>
+                                </li>
+                                <li><span>自定义:</span>
+                                    <strong class="custom"></strong>
+                                </li>
+                                <li><span>拍摄地:</span>
+                                    <strong class="shootPlace"></strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                    <!-- 轮播图 -->
+                    <div id="myCarousel" class="carousel slide">
+                        <!-- 轮播（Carousel）指标 -->
+                        <ol class="carousel-indicators">
+                        </ol>
+                        <!-- 轮播（Carousel）项目 -->
+                        <div class="carousel-inner">
+                        </div>
+                        <!-- 轮播（Carousel）导航 -->
+                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;
+                        </a>
+                        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="../boss_assets/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../boss_assets/node_modules/jquery.cookie/jquery.cookie.js"></script>
+<script src="../boss_assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../boss_assets/node_modules/art-template/lib/template-web.js"></script>
+<script src="../boss_assets/node_modules/nprogress/nprogress.js"></script>
+<script src="../boss_assets/js/common.js"></script>
+<script src="../boss_assets/js/homeManage.js"></script>
+
+<script type="text/template" id="pushGirlsTemp">
+    <table class="userInfo" border="1" id="table">
+        <tr>
+            <th>排序</th>
+            <th>用户ID</th>
+            <th>艺名</th>
+            <th>状态</th>
+        </tr>
+        {{each data v i}}
+        <tr id="tr">
+            <td>
+                <select modelId={{v.id}}>
+                    {{if v.sort == 1}}
+                    <option selected="selected">1</option>
+                    <option>2</option>                    
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    {{else if v.sort == 2}}
+                    <option>1</option>                    
+                    <option selected="selected">2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    {{else if v.sort == 3}}
+                    <option>1</option>                    
+                    <option>2</option>
+                    <option selected="selected">3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    {{else if v.sort == 4}}
+                    <option>1</option>                    
+                    <option>2</option>
+                    <option>3</option>
+                    <option selected="selected">4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    {{else if v.sort == 5}}
+                    <option>1</option>                    
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option selected="selected">5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    {{else if v.sort == 6}}
+                    <option>1</option>                    
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option selected="selected">6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    {{else if v.sort == 7}}
+                    <option>1</option>                    
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option selected="selected">7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    {{else if v.sort == 8}}
+                    <option>1</option>                    
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option selected="selected">8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    {{else if v.sort == 9}}
+                    <option>1</option>                    
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option selected="selected">9</option>
+                    <option>10</option>
+                    {{else if v.sort == 10}}
+                    <option>1</option>                    
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option selected="selected">10</option>
+                    {{/if}}
+                </select>
+            </td>
+            <td>{{v.id}}</td>
+            <td class="check name_evaluate" uid="{{v.id}}" data-toggle="modal" data-target="#noagreeModal">{{v.name}}</td>
+            <td>
+                <button class="btn btn-danger cancleBtn" userId={{v.id}}>删除</button>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    <!-- <button class="btn btn-success btn-lg fabu">发布</button> -->
+
+</script>

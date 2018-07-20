@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boss管理平台</title>
+    <link rel="stylesheet" href="../boss_assets/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../boss_assets/node_modules/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../boss_assets/node_modules/nprogress/nprogress.css">
+    <link rel="stylesheet" href="../boss_assets/css/IMGUP.css">
+    <link rel="stylesheet" href="../boss_assets/css/index.css">
+    <link rel="shortcut icon" href="../boss_assets/img/AppIcon20@2x.png">
+    <style>
+        .choose_box{
+            border:1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .choose_title{
+            border-bottom:1px solid #ccc;
+            line-height: 40px;
+            height: 40px;
+            font-size: 16px;
+            background: rgb(244,245,249);
+            margin: 0;
+            padding: 0 0 0 20px;
+        }
+        .choose_inside{
+            padding: 20px;
+        }
+        .choose_tips{
+            margin-left: 20px;
+            line-height: 40px;
+            color:#d9534f;
+        }
+        .user_item{
+            display: flex;
+            border:1px solid #5cb85c;
+            height: 34px;
+            line-height: 34px;
+            font-size: 16px;
+            border-radius: 5px;
+            padding:0 5px;
+            margin: 0 10px 10px 0;
+        }
+        .user_item>span{
+            display: blcok;
+            padding: 0 10px;
+            margin-left: 10px;
+            border-left: 1px solid #5cb85c;
+        }
+        .btnG{
+            display: flex;
+        }
+        .add{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="./index.html">
+                        <img src="../boss_assets/img/home.png"> 统计数据
+                    </a>
+                </li>
+                <li>
+                    <a href="./ticketManage.html">
+                        <img src="../boss_assets/img/ticket.png"> 门票管理
+                    </a>
+                </li>
+                <li>
+                    <a href="./orderManage.html">
+                        <img src="../boss_assets/img/order.png"> 订单管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/me.png">
+                        用户管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./users.html">
+                                用户管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./boss.html">
+                                 BOSS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./girls.html">
+                                佳人
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./agency.html">
+                                中介
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./virtual.html">
+                                虚拟用户
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./homeManage.html">
+                        <img src="../boss_assets/img/indexManage.png"> 置顶MM
+                    </a>
+                </li>
+                <li>
+                    <a href="./reviewManage.html">
+                        <img src="../boss_assets/img/review.png"> 审核管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/msg.png">
+                        推送管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="./msgManage.html" class="active">
+                                短信管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./pushManage.html">
+                                push管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="../boss_assets/img/version.png"> 版本更新
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled listUl">
+                        <li>
+                            <a href="./AndroidVersionUpdate.html">
+                                安卓更新
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./AppleVersionUpdate.html">
+                                苹果更新
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <div class="head">
+                <div class="top">
+                    <span class="title">短信管理</span>
+                </div>
+            </div>
+            <div class="body">
+                <div class="choose_box">
+                    <h4 class="choose_title">选择用户</h4>
+                    <div class="choose_inside">
+                        <div class="btnG">
+                                <!-- 按钮组 -->
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default " onclick="check(1)">BOSS</button>
+                                <button type="button" class="btn btn-default" onclick="check(0)">佳人</button>
+                                <button type="button" class="btn btn-default" onclick="check(2)">中介</button>
+                            </div>
+                            <div class="add">
+                                <button type="button" class="btn btn-primary" data-target="#addUser" data-toggle="modal" onclick="check(-1)">+自定义</button>
+                            </div>
+                            <div class="choose_tips" id="tips">
+                                目前已选择全部boos
+                            </div>
+                        </div>   
+                        <div class="b-Main-body" style="height:400px;display:flex;flex-wrap:wrap;align-content:flex-start;overflow:auto" id="userItemBox">
+                            <!-- <div class="user_item">
+                                <p>12344123</p>
+                                <span>
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </span>
+                            </div> -->
+                            <!-- <div class="b-Main-body tab_cell" id="boss">
+                                <ul></ul>
+                            </div>
+                            <div class="b-Main-body tab_cell" id="girl">
+                                <ul> 456</ul>
+                            </div>
+                            <div class="b-Main-body tab_cell" id="agency">
+                                <ul> 789</ul>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="choose_box">
+                    <h4 class="choose_title">填写内容</h4>
+                    <div class="choose_inside">
+                        <textarea name="push" id="pushmsg" cols="50" rows="5" placeholder="请输入要发送的短信内容..."></textarea>
+                        <br/>
+                        <button class="btn btn-success btn-lg pushSend" onclick="send()">发送</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- id Modal -->
+    <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:10%;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="myModalLabel">输入手机号</h3>
+                </div>
+                <div class="modal-body" style="text-align:center;display:flex;">
+                    <input type="text" class="form-control" id="userid"/>
+                    <button type="button" class="btn btn-primary" style="margin:0 20px;" onclick="addConfirm()">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="../boss_assets/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../boss_assets/node_modules/jquery.cookie/jquery.cookie.js"></script>
+<script src="../boss_assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../boss_assets/node_modules/art-template/lib/template-web.js"></script>
+<script src="../boss_assets/node_modules/nprogress/nprogress.js"></script>
+<script src="../boss_assets/node_modules/jquery/exif.js"></script>
+<script src="../boss_assets/node_modules/jquery/IMGUP.js"></script>
+<script src="../boss_assets/node_modules/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script src="../boss_assets/js/common.js"></script>
+<script src="../boss_assets/js/msgManage.js"></script>

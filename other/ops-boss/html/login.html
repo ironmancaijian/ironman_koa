@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boss管理平台</title>
+    <link rel="stylesheet" href="../boss_assets/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../boss_assets/img/AppIcon20@2x.png">
+    <style>
+        *{margin:0;padding: 0}
+        .container{
+            width: 100%;
+            height: 100vh;
+            /* background: teal; */
+        }
+        .login_box{
+            height: 500px;
+            width: 100%;
+            min-width: 900px;
+            margin-top: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .left{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 30px;
+        }
+        .logo{
+            width: 100%;
+        }
+        .right{
+            width: 400px;
+            /* height:100px; */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login_box">
+            <div class="left">
+                <img src="../boss_assets/img/logo.png" alt="" class="logo">
+            </div>
+            <div class="right">
+                <div class="input-group input-group-lg" style="margin-bottom:20px;">
+                    <span class="input-group-addon" id="sizing-addon1">用户名</span>
+                    <input type="text" class="form-control" placeholder="请填写用户名" aria-describedby="sizing-addon1" id="user">
+                </div>
+                <div class="input-group input-group-lg" style="margin-bottom:20px;">
+                    <span class="input-group-addon" id="sizing-addon1">&nbsp&nbsp密码&nbsp</span>
+                    <input type="text" class="form-control" placeholder="请填写密码" aria-describedby="sizing-addon1" id="psw">
+                </div>
+                <button type="button" class="btn btn-success" id="login">登录</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../boss_assets/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../boss_assets/node_modules/jquery.cookie/jquery.cookie.js"></script>
+<script src="../boss_assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../boss_assets/node_modules/art-template/lib/template-web.js"></script>
+<script src="../boss_assets/node_modules/nprogress/nprogress.js"></script>
+<script src="../boss_assets/js/common.js"></script>
+<script>
+    $('#login').on('click',function(){
+    var username = $('#user').val();
+    var password = $('#psw').val();
+    $.ajax({
+        url: boss_url + "staff/login",
+        type: "post",
+        contentType: "application/json",
+        data:JSON.stringify({
+            username:username,
+            password:password
+        }),
+        success:function(res){
+            if (res.httpStatus == 200) {
+                // $.cookie('token',res.data.accessToken)
+                sessionStorage.setItem('token',res.data.accessToken)
+                location.href = './index.html'
+            }else{
+                alert(res.exception)
+            }
+        },
+        error:function(err){
+            // console.log(err.responseJSON.exception)
+            alert(err.responseJSON.exception)
+        }
+    })
+})
+</script>
+</html>
