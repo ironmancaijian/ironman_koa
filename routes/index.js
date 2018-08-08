@@ -2,7 +2,8 @@ const router = require('koa-router')()
 const mysql = require('mysql')
 const {query} = require('../sql/sql')
 const koa2Req = require('koa2-request')
-// const cjhome = require('../public/index.html')
+const exec = require('child_process').exec
+
 const mjs  = function(val){
   return JSON.stringify(val)
 }
@@ -50,9 +51,6 @@ router.get('/json', async (ctx, next) => {
 })
 
 router.post('/user', async (ctx, next) => {
-  // return;
-    // let res = await selectAllData(`INSERT INTO user (name ,create_at,ip) VALUES("${ctx.request.body.name}",${JSON.stringify(new Date())},${JSON.stringify(ctx.ip)});`)
-    // console.log(a.status)
     ctx.body = {
       code:0,
       data:ctx.ip,
@@ -138,7 +136,9 @@ router.delete('/article/:id',async(ctx,next)=>{
     ctx.body = mbody(0,{},res)
 })
 
-router.post('/github',async(ctx,next)=>{
-  console.log(ctx.request.body)
+router.post('/backend',async(ctx,next)=>{
+  exec('autopull.bat',function(err,sto,ste){
+    err&&console.log(err)
+  })
 })
 module.exports = router
