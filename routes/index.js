@@ -140,5 +140,5 @@ router.post('/backend',async(ctx,next)=>{
   exec('autopull.bat',function(err,sto,ste){
     err&&console.log(err)
   })
-})
+}) 
 module.exports = router
